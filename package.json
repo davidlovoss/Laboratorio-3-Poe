@@ -1,0 +1,21 @@
+{
+  "name": "constelario",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "node --test tests/*.test.mjs",
+    "verify": "npm run test && npm run build && node scripts/verify-build.mjs"
+  },
+  "dependencies": {
+    "sql.js": "^1.14.1"
+  },
+  "devDependencies": {
+    "@types/sql.js": "^1.4.9",
+    "typescript": "^5.8.3",
+    "vite": "^7.1.0"
+  }
+}

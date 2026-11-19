@@ -5,7 +5,17 @@ import { createRequire } from 'node:module';
 import { runInNewContext } from 'node:vm';
 
 const require = createRequire(import.meta.url);
-const ts = require('/opt/nvm/versions/node/v22.16.0/lib/node_modules/typescript/lib/typescript.js');
+function getTypeScript() {
+  try { return require('typescript'); }
+  catch {
+    // Permite correr las pruebas en entornos educativos con TypeScript global.
+    const { execFileSync } = require('node:child_process');
+    const { join } = require('node:path');
+    const globalRoot = execFileSync('npm', ['root', '-g'], { encoding: 'utf8' }).trim();
+    return require(join(globalRoot, 'typescript'));
+  }
+}
+const ts = getTypeScript();
 
 function loadTypeScript(file, mocks = {}) {
   const source = readFileSync(new URL(file, import.meta.url), 'utf8');

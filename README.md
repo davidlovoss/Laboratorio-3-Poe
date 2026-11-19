@@ -123,7 +123,8 @@ El repositorio contiene commits diferenciados por fases de desarrollo:
 1. `chore: iniciar proyecto Vite y TypeScript con estructura MVC`
 2. `feat: agregar SQLite con persistencia local y CRUD de constelaciones`
 3. `feat: implementar galería interactiva, filtros y formularios CRUD`
-4. `style: crear identidad visual responsive y documentación` (preparado para el commit final).
+4. `style: crear identidad visual responsive y documentación`
+5. `test: comprobar CRUD, validaciones y persistencia de SQLite`
 
 ## Limitaciones
 
